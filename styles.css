@@ -12,6 +12,7 @@ body, a:link, a:visited, a:active{
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+  text-decoration: none;
 }
 .topbar{
   height:32px;
@@ -30,4 +31,10 @@ body, a:link, a:visited, a:active{
 }
 
 .excited{
+}
+
+.DanceFloor{
+  height: 100%;
+  width: 100%;
+  background-image: url('sunset.jpg');
 }

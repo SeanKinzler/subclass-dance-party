@@ -25,8 +25,10 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
-      Math.random() * 1000
+      3000
     );
+    dancers.push(dancer);
+    dancer.$node.data(dancers.length - 1);
     $('.DanceFloor').append(dancer.$node);
     dancer.step();
   });
@@ -38,10 +40,12 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 1000
+      $('.DanceFloor').height() * Math.random(),
+      $('.DanceFloor').width() * Math.random(),
+      3000
     );
+    dancers.push(dancer);
+    dancer.$node.data(dancers.length - 1);
     $('.DanceFloor').append(dancer.$node);
     dancer.step();
   });
@@ -52,12 +56,31 @@ $(document).ready(function() {
 
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 1000
+      $('.DanceFloor').height() * Math.random(),
+      $('.DanceFloor').width() * Math.random(),
+      3000
     );
+    dancers.push(dancer);
+    dancer.$node.data(dancers.length - 1);
     $('.DanceFloor').append(dancer.$node);
     dancer.step();
+  });
+
+  $('.lineUpDancers').on('click', function(event) {
+    var height = $('.DanceFloor').height();
+    var spacing = height / (dancers.length + 1);
+    for (var i = 0; i < dancers.length; i++) {
+      dancers[i].lineUp(($('.DanceFloor').height() - spacing * (i + 1)));
+    }
+  });
+
+  $('.DanceFloor').on('click', '.makeDancer', function(event) {
+    debugger;
+    if (this.offsetTop < ($('.DanceFloor').height() / 2 ) && this.offsetLeft < ($('.DanceFloor').width() / 2)) {
+      this.css({top: '20px', left: '20px'});
+    }
+
+    //dancers[this.data].moveAside();
   });
 
 
