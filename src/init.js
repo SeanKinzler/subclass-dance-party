@@ -23,9 +23,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      3000
+      ($('.DanceFloor').height() - 200) * Math.random(),
+      ($('.DanceFloor').width() - 200) * Math.random(),
+      1000
     );
     dancers.push(dancer);
     dancer.$node.data(dancers.length - 1);
@@ -40,8 +40,8 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     var dancer = new dancerMakerFunction(
-      $('.DanceFloor').height() * Math.random(),
-      $('.DanceFloor').width() * Math.random(),
+      ($('.DanceFloor').height() - 200) * Math.random(),
+      ($('.DanceFloor').width() - 200) * Math.random(),
       3000
     );
     dancers.push(dancer);
@@ -56,8 +56,8 @@ $(document).ready(function() {
 
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
-      $('.DanceFloor').height() * Math.random(),
-      $('.DanceFloor').width() * Math.random(),
+      ($('.DanceFloor').height() - 200) * Math.random(),
+      ($('.DanceFloor').width() - 200) * Math.random(),
       3000
     );
     dancers.push(dancer);
@@ -74,11 +74,27 @@ $(document).ready(function() {
     }
   });
 
-  $('.DanceFloor').on('click', '.makeDancer', function(event) {
-    debugger;
-    if (this.offsetTop < ($('.DanceFloor').height() / 2 ) && this.offsetLeft < ($('.DanceFloor').width() / 2)) {
-      this.css({top: '20px', left: '20px'});
-    }
+  $('.DanceFloor').on('mouseover', '.makeDancer', function(event) {
+    $(event.target).addClass('flipped');
+
+
+    setTimeout(function(argument) {
+      $(event.target).removeClass('flipped');
+    }, 3000);
+    // if (this.offsetTop <= ($('.DanceFloor').height() / 2 ) && this.offsetLeft <= ($('.DanceFloor').width() / 2)) { // top left
+    //   this.style['top'] = '20px';
+    //   this.style['left'] = '20px';
+    // } else if (this.offsetTop <= ($('.DanceFloor').height() / 2 ) && this.offsetLeft > ($('.DanceFloor').width() / 2)) { // top right
+    //   this.style['top'] = '20px';
+    //   this.style['left'] = ($('.DanceFloor').width() - 220) + 'px';
+    // } else if (this.offsetTop > ($('.DanceFloor').height() / 2 ) && this.offsetLeft <= ($('.DanceFloor').width() / 2)) { // bottom left
+    //   this.style['top'] = ($('.DanceFloor').height() - 170) + 'px';
+    //   this.style['left'] = '20px';
+    // } else if (this.offsetTop > ($('.DanceFloor').height() / 2 ) && this.offsetLeft > ($('.DanceFloor').width() / 2)) { // bottom right
+    //   this.style['top'] = ($('.DanceFloor').height() - 170) + 'px';
+    //   this.style['left'] = ($('.DanceFloor').width() - 220) + 'px';
+    // }
+
 
     //dancers[this.data].moveAside();
   });

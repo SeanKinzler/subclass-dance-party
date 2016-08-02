@@ -37,17 +37,17 @@ makeDancer.prototype.lineUp = function(spacing) {
   this.$node.animate({top: spacing + 'px', left: '100px'}, 'fast');
 };
 
-makeDancer.prototype.moveAside = function(argument) {
-  if (this.$node.top < (window.height() / 2 ) && this.$node.left < (window.width() / 2)) {
-    this.$node.animate({top: '20px', left: '20px'});
-  }
+// makeDancer.prototype.moveAside = function(argument) {
+//   if (this.$node.top < (window.height() / 2 ) && this.$node.left < (window.width() / 2)) {
+//     this.$node.animate({top: '20px', left: '20px'});
+//   }
   // window.width();
 
   
 
 
   // this.$node.animate({});
-};
+// };
 
   // now that we have defined the makeDancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body

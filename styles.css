@@ -36,5 +36,9 @@ body, a:link, a:visited, a:active{
 .DanceFloor{
   height: 100%;
   width: 100%;
-  background-image: url('sunset.jpg');
+  background: url('bb.jpg') no-repeat center center fixed;
+}
+
+.flipped {
+  transform: scale(-1,1);
 }

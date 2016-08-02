@@ -3,7 +3,9 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
-
+  this.$node = $('<span class="makeDancer"><img class="gary" src="Gary.png" height=30% width=30%></span>');
+  this.styleSettings = {'border-radius': 3, border: 'none', 'top': top, 'left': left};
+  this.$node.css(this.styleSettings);
 };
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
