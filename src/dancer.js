@@ -6,6 +6,8 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
+  this.initiated = 0;
+  this.linedUp = false;
 
 };
 
@@ -15,7 +17,10 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 makeDancer.prototype.step = function() {
   // the basic makeDancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-  setInterval(function() { this.step(); }.bind(this), this.timeBetweenSteps);
+  if (this.initiated === 0) {
+    setInterval(function() { if (this.linedUp === false) { this.step(); } }.bind(this), this.timeBetweenSteps);
+    this.initiated = 1;
+  } 
 };
   
 

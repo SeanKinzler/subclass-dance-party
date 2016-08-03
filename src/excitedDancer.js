@@ -4,7 +4,7 @@ var makeExcitedDancer = function(top, left, timeBetweenSteps) {
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   this.styleSettings = {'border-radius': 3, border: 'none', 'top': top, 'left': left};
-  this.$node = $('<span class="makeDancer"><img class="pat" src="patrick.png" height=50% width=50%></span>');
+  this.$node = $('<span class="makeDancer pat"><img class="pat" src="patrick.png" height=50% width=50%></span>');
   this.$node.css(this.styleSettings);
 };
 makeExcitedDancer.prototype = Object.create(makeDancer.prototype);

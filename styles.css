@@ -42,3 +42,9 @@ body, a:link, a:visited, a:active{
 .flipped {
   transform: scale(-1,1);
 }
+
+.gary {
+  width: auto;
+  height: 25%;
+
+}
